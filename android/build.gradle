@@ -4,7 +4,9 @@ buildscript {
     def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['RNSAC_kotlinVersion']
 
     repositories {
-        mavenCentral()
+        maven { url "http://makhzanalhagh:8082/repository/test-I-group/"
+            allowInsecureProtocol = true 
+        }
     }
 
     dependencies {
@@ -120,12 +122,13 @@ android {
 }
 
 repositories {
-    google()
+    maven { url "http://makhzanalhagh:8082/repository/test-I-group/"
+        allowInsecureProtocol = true 
+    }
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url "$rootDir/../node_modules/react-native/android"
     }
-    mavenCentral()
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion', project.properties['RNSAC_kotlinVersion'])
